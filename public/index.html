@@ -2,6 +2,8 @@
 <html lang="pt-br" ng-app="alurapic">
 <head>
     <meta charset="UTF-8">
+    <!-- base: pelo html5 ele tira o hash (#) da página quando é chamada (ngRoute, routeprovider) -->
+    <base href="/">
     <meta name="viewport" content="width=device-width">
     <title>Alurapic</title>
 
@@ -11,30 +13,21 @@
 
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-animate.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/controllers/fotos-controller.js"></script>
     <script src="js/directives/minhas-diretivas.js"></script>
 </head>
 
 <body ng-controller="FotosController">
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="text-center">Alurapic</h1> </div>
-        <div class="row">
-            <div class="col-md-12">
-                <form>
-                    <input class="form-control" placeholder="filtrar pelo título da foto"
-							ng-model="filtro" ng-model-options="{ debounce: 500 }">
-                </form>
-            </div>
-        </div>
-        <div class="row">
-           <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
-                    <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
-                </meu-painel>
-        </div>
-    </div>
-    <!-- fim container -->
+
+    <!-- o angular vai buscar o principal.html e vai inserir dinamicamente o conteúdo via javascript aqui
+         através do ng-view
+         a página fica estática, mas o que fica trocando dentro dela é esse 'miolo' chamado pelo ng-view
+         a página não recarrega, ela é chamada via ajax
+    -->
+    <ng-view></ng-view>
+
 </body>
 
 </html>
