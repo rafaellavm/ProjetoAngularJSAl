@@ -1,3 +1,5 @@
+//módulo principal da aplicação
+
 angular.module('alurapic',['minhasDiretivas', 'ngAnimate', 'ngRoute'])
 .config(function($routeProvider, $locationProvider){
 
@@ -15,8 +17,8 @@ angular.module('alurapic',['minhasDiretivas', 'ngAnimate', 'ngRoute'])
 
     //nessa rota chama a tela de adição de contato
     $routeProvider.when('/fotos/new',{
-        templateUrl: 'partials/foto.html' //,
-        //controller: 'FotosController'
+        templateUrl: 'partials/foto.html',
+        controller: 'FotoController'
     });
 
     //otherwise: 'caso contrário'... É chamada caso seja digitado uma página que não existe

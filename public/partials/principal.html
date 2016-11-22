@@ -4,13 +4,17 @@
     <div class="row">
         <div class="col-md-12">
             <form>
-                <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+                <!-- a classe 'input-group' agrupa os componentes dentro dela -->
+                <div class="input-group">
+                    <span class="input-group-btn">
+                    	<a href="fotos/new" class="btn btn-primary">Nova foto</a>
+                    </span>
+                    <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+                </div>
             </form>
         </div>
     </div>
     <div class="row">
-        <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
-            <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
-        </meu-painel>
+        <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}"> <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}"> </meu-painel>
     </div>
 </div>
