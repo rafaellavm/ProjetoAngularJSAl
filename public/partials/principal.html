@@ -15,6 +15,11 @@
         </div>
     </div>
     <div class="row">
-        <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}"> <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}"> </meu-painel>
+        <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}"> <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+            <!-- class: btn-block: deixa um botão embaixo do outro, como se fosse a classe 'block' -->
+            <a href="" class="btn btn-primary btn-block">Editar</a>
+            <button ng-click="remover(foto)" class="btn btn-danger btn-block">Remover</button>
+        </meu-painel>
+
     </div>
 </div>
