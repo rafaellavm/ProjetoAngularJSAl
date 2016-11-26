@@ -15,8 +15,16 @@ angular.module('alurapic',['minhasDiretivas', 'ngAnimate', 'ngRoute'])
         controller: 'FotosController'
     });
 
-    //nessa rota chama a tela de adição de contato
+    //nessa rota chama a tela de adição da foto
     $routeProvider.when('/fotos/new',{
+        templateUrl: 'partials/foto.html',
+        controller: 'FotoController'
+    });
+
+
+    //nessa rota chama a tela de edição de foto
+    // :fotoId: um 'coringa's
+    $routeProvider.when('/fotos/edit/:fotoId',{
         templateUrl: 'partials/foto.html',
         controller: 'FotoController'
     });
