@@ -37,8 +37,8 @@ angular.module('minhasDiretivas', [])
         ddo.templateUrl = 'js/directives/meu-painel.html';
 
 		return ddo;
-	})
-    .directive('minhaFoto', function() {
+    })
+.directive('minhaFoto', function() {
 
         var ddo = {};
 
@@ -52,4 +52,45 @@ angular.module('minhasDiretivas', [])
         ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';
 
         return ddo;
-    });
+    })
+.directive('meuBotaoPerigo', function(){
+
+    var ddo = {};
+
+    //só pode ser usado como elemento
+    ddo.restrict = "E";
+
+    //escopo da diretiva com seus atributos
+    ddo.scope = {
+
+        //string
+        nome: '@',
+        //é passado uma expressão, não uma string, por isso o &
+        acao: '&'
+    };
+
+    //botão chamado na página principal.html, para remover a foto
+    ddo.template = '<button ng-click="acao(foto)" class="btn btn-danger btn-block">{{nome}}</button>';
+
+    return ddo;
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
