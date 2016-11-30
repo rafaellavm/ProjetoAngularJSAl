@@ -1,6 +1,6 @@
 //módulo principal da aplicação
 
-angular.module('alurapic',['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+angular.module('alurapic',['minhasDiretivas', 'ngAnimate', 'ngRoute','meusServicos'])
 .config(function($routeProvider, $locationProvider){
 
     //assim o angular para de trabalhar com hash e passa a trabalhar com html5, tirando o "#" do link
