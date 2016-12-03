@@ -1,0 +1,22 @@
+ //outra forma para alteração da foto: 
+//$scope.foto._id, $scope.foto = id da foto + os dados da foto
+$http.put('v1/fotos/' + $scope.foto._id, $scope.foto)
+                .success(function(){
+                    $scope.mensagem = "A foto " + $scope.foto.titulo + " foi alterada com sucesso";
+                })
+                .error(function(erro){
+                    $scope.mensagem = "Não foi possível alterar a foto " + $scope.foto.titulo;
+                });
+
+
+
+
+		/*$http.post('/v1/fotos', $scope.foto)
+                    .success(function () {
+                        $scope.foto = {};
+                        $scope.mensagem = 'Foto cadastrada com sucesso';
+                    })
+                    .error(function (erro) {
+                        console.log(erro);
+                        $scope.mensagem = 'Não foi possível cadastrar a foto';
+                    });

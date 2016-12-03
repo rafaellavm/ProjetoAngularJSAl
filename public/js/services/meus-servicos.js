@@ -18,8 +18,10 @@ angular.module('meusServicos', ['ngResource'])
 //serviço que depente de outro serviço
 //$q: permite criar promises
 	.factory("cadastroDeFotos", function(recursoFoto, $q) {
-		var service = {};
-		service.cadastrar = function(foto) {
+
+    var service = {};
+
+    service.cadastrar = function(foto) {
 			return $q(function(resolve, reject) {
 
 				if(foto._id) {
