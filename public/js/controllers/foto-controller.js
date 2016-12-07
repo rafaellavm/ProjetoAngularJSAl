@@ -11,7 +11,7 @@ angular.module('alurapic')
 				$scope.foto = foto;
 			}, function(erro) {
 				console.log(erro);
-				$scope.mensagem = 'Não foi possível obter a foto'
+				$scope.mensagem = 'Não foi possível obter a foto';
 			});
 		}
 
@@ -20,11 +20,17 @@ angular.module('alurapic')
 			if ($scope.formulario.$valid) {
 				cadastroDeFotos.cadastrar($scope.foto)
 				.then(function(dados) {
-					$scope.mensagem = dados.mensagem;
-					if (dados.inclusao) $scope.foto = {};
+
+                    $scope.mensagem = dados.mensagem;
+
+                    if (dados.inclusao) {
+                        $scope.foto = {};
+                    }
+                    $scope.focado = true;
 				})
 				.catch(function(erro) {
-					$scope.mensagem = erro.mensagem;
+
+                    $scope.mensagem = erro.mensagem;
 				});
 			}
 		};

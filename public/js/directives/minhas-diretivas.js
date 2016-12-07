@@ -74,6 +74,44 @@ angular.module('minhasDiretivas', [])
 
     return ddo;
 
+})
+.directive('meuFocus',function(){
+
+    var ddo = {};
+
+    //essa diretiva só funciona como atributo
+    //<a href="/" class="btn btn-primary" meu-focus focado="focado">Voltar</a>
+    ddo.restrict = "A";
+
+    // Esse '=' permite que qualquer alteração que a diretiva faça na propriedade o meu controle fica 'sabendo', e vice-versa
+    // é uma comunicação bi-direcional
+    ddo.scope = {
+
+        focado: '='
+    };
+
+    //link: dá acesso ao escopo da minha diretiva; também tem acesso ao elemento do dom que eu quero trabalhar
+    //só na fase link eu posso botar 'watchers' (observadores de propriedades)
+    //link recebe uma função. Nessa função eu tenho acesso ao escopo da minha diretiva, e ao elemento
+    //element: elemento do dom no qual a diretiva foi adicionada
+    //assim eu tenho acesso a 'focado', vou saber se ele é verdadeiro ou falso e ele me dá acesso também ao elemento do dom a qual ele faz parte
+    //eu só quero executar essa diretiva quando a propriedade foco mudar
+
+    ddo.link = function(scope, element){
+
+       //focado: propriedade que eu quero monitorar
+        scope.$watch('focado',function(){
+
+            //scope.focado = tenho acesso ao escopo
+            //se o escopo focado for verdadeiro...
+            if(scope.focado){
+
+                element[0].focus();
+          }
+       });
+    }
+
+    return ddo;
 });
 
 
