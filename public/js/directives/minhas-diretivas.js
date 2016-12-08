@@ -85,10 +85,11 @@ angular.module('minhasDiretivas', [])
 
     // Esse '=' permite que qualquer alteração que a diretiva faça na propriedade o meu controle fica 'sabendo', e vice-versa
     // é uma comunicação bi-direcional
-    ddo.scope = {
+    //(não precisa mais)
+    /*ddo.scope = {
 
         focado: '='
-    };
+    };*/
 
     //link: dá acesso ao escopo da minha diretiva; também tem acesso ao elemento do dom que eu quero trabalhar
     //só na fase link eu posso botar 'watchers' (observadores de propriedades)
@@ -99,7 +100,9 @@ angular.module('minhasDiretivas', [])
 
     ddo.link = function(scope, element){
 
-       //focado: propriedade que eu quero monitorar
+        //1)
+        /*//focado: propriedade que eu quero monitorar
+        //watch:  fica monitorando o elemento
         scope.$watch('focado',function(){
 
             //scope.focado = tenho acesso ao escopo
@@ -107,8 +110,14 @@ angular.module('minhasDiretivas', [])
             if(scope.focado){
 
                 element[0].focus();
-          }
-       });
+          }*/
+
+        //2) outra forma de fazer sem usar o $watch (que pode ser custoso e deixar a página lenta):
+        //$on fica monitorando o evento 'fotoCadastrada', se ela foi disparada eu posso fazer uma ação:
+        scope.$on('fotoCadastrada', function(){
+            element[0].focus();
+        });
+
     }
 
     return ddo;

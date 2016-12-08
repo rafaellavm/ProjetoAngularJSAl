@@ -26,7 +26,8 @@ angular.module('alurapic')
                     if (dados.inclusao) {
                         $scope.foto = {};
                     }
-                    $scope.focado = true;
+                    //$scope.focado = true;
+
 				})
 				.catch(function(erro) {
 
